@@ -1,0 +1,126 @@
+body {
+    margin: 0;
+    padding: 0;
+    display: flex;
+    height: 100vh;
+    font-family: sans-serif;
+    overflow: hidden;
+    background-color: #d4d4d4;
+  }
+
+  #left {
+    width: 30vw;
+    background-color: rgb(246, 228, 194);
+    height: 100vh;
+    min-width: 250px;
+  }
+
+  #right {
+    flex: 1;
+    height: 100vh;
+    position: relative;
+    background-color: #d4d4d4;
+  }
+  
+  #resize-handle {
+    width: 8px;
+    height: 100vh;
+    background-color: #555;
+    cursor: col-resize;
+    position: absolute;
+    left: 0;
+    top: 0;
+    z-index: 10;
+  }
+  
+  #resize-handle:hover {
+    background-color: yellow;
+  }
+  
+  #pattern-container {
+    width: 100%;
+    height: 100%;
+    position: relative;
+    background-color: #d4d4d4;
+  }
+  
+  #ui {
+    width: 100%;
+    padding: 20px;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    color: black;
+    justify-content: start;
+    font-size: 18pt;
+    gap: 15px;
+  }
+
+  input {
+    font-size: 18px;
+    padding: 10px;
+    background-color: rgb(246, 228, 194);
+    color: black;
+    margin-top: 5px;
+    border-radius: 0px;
+  }
+
+  .slider-container {
+    display: flex;
+    flex-direction: column;
+    margin-top: 15px;
+  }
+
+  .slider-label {
+    font-size: 18pt;
+    margin-bottom: 5px;
+  }
+
+  input[type="number"] {
+    -webkit-appearance: none;
+    width: calc(100% - 20px);
+    font-size: 16px;
+    padding: 8px;
+    background-color: rgb(246, 228, 194);
+    color: black;
+    border: 1px solid black;
+    margin-top: 5px;
+  }
+  
+  input[type="number"]:focus {
+    outline: none;
+    border: 2px solid black;
+  }
+
+  #yPatternValue {
+    border: 2px solid black;
+    font-size: 16px;
+  }
+  #xPatternValue {
+    border: 2px solid black;
+  }
+
+  #placeholder {
+    color: black;
+  }
+
+  #textInput {
+    border-radius: 0px;
+    width: auto;
+    box-shadow: none !important;
+    border: black solid 2px;
+  }
+  
+  #textInput:focus {
+    outline: none;
+    box-shadow: none;
+    border: 1px solid black; /* Fixed to keep white border on focus */
+  }
+
+  canvas {
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    background-color: #9e9e9e;
+  }
