@@ -13,12 +13,12 @@
         <input type="text" id="textInput" placeholder="..." />
         
         <div class="slider-container">
-          <div class="slider-label">N1:</div>
+          <div class="slider-label">X Value</div>
           <input type="number" id="xPatternValue" value="72" min="1" />
         </div>
         
         <div class="slider-container">
-          <div class="slider-label">N2:</div>
+          <div class="slider-label">Y Value</div>
           <input type="number" id="yPatternValue" value="32" min="1" />
         </div>
         <br>
@@ -36,9 +36,9 @@
         <p id="description">The characters of the text you enter are layed out on the page with the following equations:
             <br>
             <br>
-            const x = width/2 + cos(i * N1 * PI / count) * (width * 0.38); 
+            const x = width/2 + cos(i * X Value * PI / count) * (width * 0.38); 
             <br>
-            const y = height/2 + sin(i * N2 * PI / count) * (height * 0.47);
+            const y = height/2 + sin(i * Y Value * PI / count) * (height * 0.47);
           </p>
       </div>
       
