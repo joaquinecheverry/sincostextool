@@ -1,8 +1,14 @@
+// require https://cdn.jsdelivr.net/npm/p5@1.4.0/lib/p5.js
+/*exported setup draw */
+
 let inputText = ''; 
 let canvas; 
 let xPatternValue = 72; 
 let yPatternValue = 32;
+let speedSlider;
 const defaultText = "This tool is a part of a project called Abstract Systems by Joaquin Echeverry Braver. The project explores the difference between abstraction and designed abstraction, the functionality of design and objectiveness of it as a communication medium";
+let animationSpeed = 0.1; // Animation speed control
+let animationOffset = 0; // Animation offset
 
 function setup() {
   // Get the container dimensions 
@@ -14,9 +20,8 @@ function setup() {
   canvas = createCanvas(containerWidth, containerHeight); 
   canvas.parent('pattern-container');
   
-  textFont('sans-serif'); 
   textSize(16); 
-  noLoop();
+  frameRate(30);
   
   // Set default text
   const input = document.getElementById('textInput');
@@ -26,23 +31,22 @@ function setup() {
   // Text input event listener 
   input.addEventListener('input', () => { 
     inputText = input.value; 
-    redraw(); 
   });
   
   // Pattern value inputs 
   const xInput = document.getElementById('xPatternValue'); 
   const yInput = document.getElementById('yPatternValue');
-  
+  speedSlider = document.getElementById('speedSlider');
+
+
   xInput.addEventListener('input', () => { 
     // Parse as float to allow decimal values 
     xPatternValue = parseFloat(xInput.value) || 72; // Default to 72 if invalid 
-    redraw(); 
   });
   
   yInput.addEventListener('input', () => { 
     // Parse as float to allow decimal values 
     yPatternValue = parseFloat(yInput.value) || 32; // Default to 32 if invalid 
-    redraw(); 
   });
   
   // Resizable panel implementation 
@@ -68,21 +72,19 @@ function setup() {
     if (newWidth >= 250 && newWidth <= window.innerWidth - 200) { 
       leftPanel.style.width = `${newWidth}px`; 
       resizeCanvas(container.offsetWidth, container.offsetHeight); 
-      redraw(); 
     } 
   }
   
   // Handle window resize 
   window.addEventListener('resize', windowResized);
   
-  // Draw the initial pattern with default text
-  redraw();
+  // Start animation loop
+  loop();
 }
 
 function windowResized() { 
   const container = document.getElementById('pattern-container'); 
   resizeCanvas(container.offsetWidth, container.offsetHeight); 
-  redraw(); 
 }
 
 function draw() { 
@@ -92,12 +94,18 @@ function draw() {
 
   if (!inputText) return;
 
-  let count = inputText.length; 
-  for (let i = 0; i < count; i++) { 
-    // Use the dynamic pattern values 
-    const x = width/2 + cos(i * xPatternValue * PI / count) * (width * 0.38); 
-    const y = height/2 + sin(i * yPatternValue * PI / count) * (height * 0.47);
+  const count = inputText.length;
+  const userSpeed = parseFloat(speedSlider.value);
 
-    text(inputText[i], x, y); 
+  animationOffset += userSpeed; // No modulo here
+
+  for (let i = 0; i < count; i++) { 
+    const position = i + animationOffset;
+
+    const x = width / 2 + cos(position * xPatternValue * PI / count) * (width * 0.38); 
+    const y = height / 2 + sin(position * yPatternValue * PI / count) * (height * 0.47);
+
+    text(inputText[i % count], x, y); 
   } 
 }
+
