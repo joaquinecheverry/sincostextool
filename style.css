@@ -5,12 +5,12 @@ body {
     height: 100vh;
     font-family: sans-serif;
     overflow: hidden;
-    background-color: #d4d4d4;
+    background-color: white;
   }
 
   #left {
     width: 30vw;
-    background-color: rgb(246, 228, 194);
+    background-color: white;
     height: 100vh;
     min-width: 250px;
   }
@@ -26,7 +26,7 @@ body {
     flex: 1;
     height: 100vh;
     position: relative;
-    background-color: #d4d4d4;
+    background-color: white;
   }
   
   #resize-handle {
@@ -48,7 +48,7 @@ body {
     width: 100%;
     height: 100%;
     position: relative;
-    background-color: #d4d4d4;
+    background-color: white;
   }
   
   #ui {
@@ -66,7 +66,7 @@ body {
   input {
     font-size: 18px;
     padding: 10px;
-    background-color: rgb(246, 228, 194);
+    background-color: yellow;
     color: black;
     margin-top: 5px;
     border-radius: 0px;
@@ -119,7 +119,7 @@ font-size: 12pt;
     width: calc(100% - 20px);
     font-size: 16px;
     padding: 8px;
-    background-color: rgb(246, 228, 194);
+    background-color: yellow;
     color: black;
     border: 1px solid black;
     margin-top: 5px;
@@ -127,15 +127,15 @@ font-size: 12pt;
   
   input[type="number"]:focus {
     outline: none;
-    border: 2px solid black;
+    border: 0px solid black;
   }
 
   #yPatternValue {
-    border: 2px solid black;
+    border: 0px solid black;
     font-size: 16px;
   }
   #xPatternValue {
-    border: 2px solid black;
+    border: 0px solid black;
   }
 
   #placeholder {
@@ -147,7 +147,7 @@ font-size: 12pt;
     width: auto;
     max-width: 370px;
     box-shadow: none !important;
-    border: black solid 2px;
+    border: black solid 0px;
   }
   
   #textInput:focus {
@@ -161,5 +161,5 @@ font-size: 12pt;
     position: absolute;
     top: 0;
     left: 0;
-    background-color: #9e9e9e;
+    background-color: white;
   }
